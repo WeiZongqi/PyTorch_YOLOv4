@@ -401,8 +401,6 @@ class LoadImagesAndLabels(Dataset):  # for training/testing
         # Read cache
         cache.pop('hash')  # remove hash
         labels, shapes = zip(*cache.values())
-        print(labels, '-'*50)
-        print(shapes, '+'*50)
         self.labels = list(labels)
         self.shapes = np.array(shapes, dtype=np.float64)
         self.img_files = list(cache.keys())  # update
