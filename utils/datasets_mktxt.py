@@ -44,10 +44,10 @@ def coco2txt(path_name):
             hh = y1 - y2
             l3 = []
             l3.append(str(cls_num))
-            l3.append(str(xx))
-            l3.append(str(yy))
-            l3.append(str(ww))
-            l3.append(str(hh))
+            l3.append(str(xx/ 1024.))
+            l3.append(str(yy/ 1024.))
+            l3.append(str(ww/ 1024.))
+            l3.append(str(hh/ 1024.))
             line = ' '.join(l3)
             res.append(line + '\n')
             # cv.line(img, (x1, y1), (x2, y1), point_color, thickness, lineType)
