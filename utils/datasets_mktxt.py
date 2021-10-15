@@ -2,7 +2,7 @@ import os
 import cv2 as cv
 
 def mktxt(path_name):
-    root_path = '/home/cver/files/dataset/dota2-split-1024/'
+    root_path = '/home/muyun99/data/wzq/dota2-split-1024/'
     with open(root_path + path_name + '/' + path_name + '.txt', 'w+') as save:
         list_images = os.listdir(root_path + path_name + '/images/')
         for name in list_images:
@@ -15,7 +15,7 @@ wordname_15 = ['plane', 'baseball-diamond', 'bridge', 'ground-track-field', 'sma
 
 
 def coco2txt(path_name):
-    root_path = '/home/cver/files/dataset/dota2-split-1024/'
+    root_path = '/home/muyun99/data/wzq/dota2-split-1024/'
     imgs_path = root_path + path_name + '/images/'
     label_path = root_path + path_name + '/labelTxt/'
 
