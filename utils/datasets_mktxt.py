@@ -58,4 +58,4 @@ def coco2txt(path_name):
         f.writelines(res)
         f.close()
 # mktxt('train1024')
-coco2txt('train1024')
+coco2txt('val1024')
