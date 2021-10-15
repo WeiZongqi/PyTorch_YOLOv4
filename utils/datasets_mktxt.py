@@ -26,7 +26,7 @@ def coco2txt(path_name):
     for img_path in imgs:
         img = cv.imread(imgs_path + img_path)
         w, h, _ = img.shape
-        label_name = img.replace('.png', '.txt')
+        label_name = img_path.replace('.png', '.txt')
         ll = open(label_path + label_name).readlines()
         res = []
         for l in ll:
