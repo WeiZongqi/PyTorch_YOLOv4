@@ -33,6 +33,10 @@ from utils.loss import compute_loss
 from utils.plots import plot_images, plot_labels, plot_results, plot_evolution
 from utils.torch_utils import ModelEMA, select_device, intersect_dicts, torch_distributed_zero_first
 
+
+
+os.environ["CUDA_VISIBLE_DEVICES"] = '0, 1'
+
 logger = logging.getLogger(__name__)
 
 try:
