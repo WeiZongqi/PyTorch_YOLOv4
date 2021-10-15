@@ -48,7 +48,7 @@ def coco2txt(path_name):
             l3.append(str(yy))
             l3.append(str(ww))
             l3.append(str(hh))
-            line = ', '.join(l3)
+            line = ' '.join(l3)
             res.append(line + '\n')
             # cv.line(img, (x1, y1), (x2, y1), point_color, thickness, lineType)
             # cv.line(img, (x2, y2), (x2, y1), point_color, thickness, lineType)
