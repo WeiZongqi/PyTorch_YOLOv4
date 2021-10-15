@@ -72,6 +72,7 @@ def train(hyp, opt, device, tb_writer=None, wandb=None):
     nc, names = (1, ['item']) if opt.single_cls else (int(data_dict['nc']), data_dict['names'])  # number classes, names
     assert len(names) == nc, '%g names found for nc=%g dataset in %s' % (len(names), nc, opt.data)  # check
 
+
     # Model
     pretrained = weights.endswith('.pt')
     if pretrained:
@@ -455,7 +456,8 @@ def train(hyp, opt, device, tb_writer=None, wandb=None):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--weights', type=str, default='weights/yolov4.weights', help='initial weights path')
+    parser.add_argument('--weights', type=str, default='', help='initial weights path')
+    # parser.add_argument('--weights', type=str, default='weights/yolov4.weights', help='initial weights path')
     parser.add_argument('--cfg', type=str, default='cfg/yolov4-pacsp.cfg', help='model.yaml path')
     parser.add_argument('--data', type=str, default='data/dota.yaml', help='data.yaml path')
     parser.add_argument('--hyp', type=str, default='data/hyp.scratch.yaml', help='hyperparameters path')
