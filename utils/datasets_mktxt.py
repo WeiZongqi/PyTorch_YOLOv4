@@ -29,5 +29,5 @@ def coco2txt(path_name):
         label_name = img.replace('.png', '.txt')
         ll = open(label_path + label_name).readlines()
         
-mktxt('train1024')
+mktxt('val1024')
 # coco2txt('train1024')
