@@ -76,7 +76,13 @@ def train(hyp, opt, device, tb_writer=None, wandb=None):
     nc, names = (1, ['item']) if opt.single_cls else (int(data_dict['nc']), data_dict['names'])  # number classes, names
     assert len(names) == nc, '%g names found for nc=%g dataset in %s' % (len(names), nc, opt.data)  # check
 
-
+    # weights.endswith('.weights')
+    weights_ = 'weights/yolov4.weights'
+    model = Darknet(opt.cfg)
+    model.load_darknet_weights(model, weights_)
+    chkpt = {'epoch': -1, 'best_loss': None, 'model': model.state_dict(), 'optimizer': None}
+    torch.save(chkpt, 'yolov4.pt')
+    print("Success: converted '%s' to 'yolov4.pt'" % weights)
     # Model
     pretrained = weights.endswith('.pt')
     if pretrained:
@@ -337,7 +343,7 @@ def train(hyp, opt, device, tb_writer=None, wandb=None):
                 ema.update_attr(model)
             final_epoch = epoch + 1 == epochs
             if not opt.notest or final_epoch:  # Calculate mAP
-                if epoch >= 0:
+                if epoch >= 15:
                     results, maps, times = test.test(opt.data,
                                                  batch_size=batch_size//2,
                                                  # batch_size=batch_size*2,
