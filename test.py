@@ -11,7 +11,7 @@ from tqdm import tqdm
 
 from utils.google_utils import attempt_load
 from utils.datasets import create_dataloader
-from utils.general import coco80_to_coco91_class, check_dataset, check_file, check_img_size, box_iou, \
+from utils.general import coco80_to_coco91_class, dota2cls, check_dataset, check_file, check_img_size, box_iou, \
     non_max_suppression, scale_coords, xyxy2xywh, xywh2xyxy, clip_coords, set_logging, increment_path
 from utils.loss import compute_loss
 from utils.metrics import ap_per_class
@@ -78,7 +78,8 @@ def test(data,
 
     # Configure
     model.eval()
-    is_coco = data.endswith('coco.yaml')  # is COCO dataset
+    is_coco = data.endswith('dota.yaml')  # is COCO dataset
+    # is_coco = data.endswith('coco.yaml')  # is COCO dataset
     with open(data) as f:
         data = yaml.load(f, Loader=yaml.FullLoader)  # model dict
     check_dataset(data)  # check
@@ -105,7 +106,8 @@ def test(data,
         names = model.names if hasattr(model, 'names') else model.module.names
     except:
         names = load_classes(opt.names)
-    coco91class = coco80_to_coco91_class()
+    coco91class = dota2cls()
+    # coco91class = coco80_to_coco91_class()
     s = ('%20s' + '%12s' * 6) % ('Class', 'Images', 'Targets', 'P', 'R', 'mAP@.5', 'mAP@.5:.95')
     p, r, f1, mp, mr, map50, map, t0, t1 = 0., 0., 0., 0., 0., 0., 0., 0., 0.
     loss = torch.zeros(3, device=device)
