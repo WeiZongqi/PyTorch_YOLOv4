@@ -81,7 +81,7 @@ def train(hyp, opt, device, tb_writer=None, wandb=None):
     model = Darknet(opt.cfg)
     load_darknet_weights(model, weights_)
     chkpt = {'epoch': -1, 'best_loss': None, 'model': model.state_dict(), 'optimizer': None}
-    torch.save(chkpt, 'yolov4.pt')
+    torch.save(chkpt, 'weights/yolov4.pt')
     print("Success: converted '%s' to 'yolov4.pt'" % weights)
     # Model
     pretrained = weights.endswith('.pt')
