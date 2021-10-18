@@ -2,9 +2,9 @@
 #train: ../coco/train2017.txt  # 118k images
 #val: ../coco/val2017.txt  # 5k images
 #test: ../coco/testdev2017.txt  # 20k images for submission to https://competitions.codalab.org/competitions/20794
-train: /home/muyun99/data/wzq/dota2-split-1024/train1024/train1024.txt  #
-val: /home/muyun99/data/wzq/dota2-split-1024/val1024/val1024.txt
-test: /home/muyun99/data/wzq/dota2-split-1024/test1024/test1024.txt  #
+train: /home/muyun99/data/wzq/dota2-split-640/train640/train640.txt  #
+val: /home/muyun99/data/wzq/dota2-split-640/val640/val640.txt
+test: /home/muyun99/data/wzq/dota2-split-640/test640/test640.txt  #
 
 
 # number of classes
