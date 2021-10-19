@@ -77,12 +77,12 @@ def train(hyp, opt, device, tb_writer=None, wandb=None):
     assert len(names) == nc, '%g names found for nc=%g dataset in %s' % (len(names), nc, opt.data)  # check
 
     # weights.endswith('.weights')
-    weights_ = 'weights/yolov4-pacsp.weights'
-    model = Darknet(opt.cfg)
-    load_darknet_weights(model, weights_)
-    chkpt = {'epoch': -1, 'best_loss': None, 'model': model.state_dict(), 'optimizer': None}
-    torch.save(chkpt, 'weights/yolov4-pacsp.pt')
-    print("Success: converted '%s' to 'yolov4.pt'" % weights)
+    # weights_ = 'weights/yolov4-pacsp.weights'
+    # model = Darknet(opt.cfg)
+    # load_darknet_weights(model, weights_)
+    # chkpt = {'epoch': -1, 'best_loss': None, 'model': model.state_dict(), 'optimizer': None}
+    # torch.save(chkpt, 'weights/yolov4-pacsp.pt')
+    # print("Success: converted '%s' to 'yolov4.pt'" % weights)
     # Model
     pretrained = weights.endswith('.pt')
     if pretrained:
@@ -467,7 +467,8 @@ def train(hyp, opt, device, tb_writer=None, wandb=None):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--weights', type=str, default='weights/yolov4-pacsp.pt', help='initial weights path')
+    parser.add_argument('--weights', type=str, default='runs/train/exp38/weights/epoch_074.pt', help='initial weights path')
+    # parser.add_argument('--weights', type=str, default='weights/yolov4-pacsp.pt', help='initial weights path')
     # parser.add_argument('--weights', type=str, default='weights/yolov4.weights', help='initial weights path')
     parser.add_argument('--cfg', type=str, default='cfg/yolov4-pacsp.cfg', help='model.yaml path')
     parser.add_argument('--data', type=str, default='data/dota.yaml', help='data.yaml path')
